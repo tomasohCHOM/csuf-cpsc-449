@@ -22,32 +22,10 @@ def user():
 
 
 # GET and POST endpoint for the user's location (city, country)
-@app.route("/location-form", methods=["GET", "POST"])
+@app.route("/ide", methods=["GET", "POST"])
 def location_form():
-    # Handle POST request
-    if request.method == "POST":
-        country = request.form.get("country")
-        city = request.form.get("city")
-        return """
-            <p>Location: {}, {}</p>
-        """.format(
-            city, country
-        )
-
-    # Handle GET request (HTML form element)
-    return """
-        <form method="POST">
-          <div>
-            <label>City:</label>
-            <input type="text" name="city" placeholder="Please input your city" />
-          </div>
-          <div>
-            <label>Country:</label>
-            <input type="text" name="country" placeholder="Please input your country" />
-          </div>
-          <input type="submit" value="Submit" />
-        </form>
-    """
+    ide = "VI" if request.method == "POST" else "Emacs"
+    return ide, 200
 
 
 if __name__ == "__main__":
