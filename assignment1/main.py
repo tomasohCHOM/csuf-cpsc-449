@@ -20,6 +20,7 @@ def user():
         )
     return jsonify(data), 200
 
+
 # GET and POST endpoint for the user's location (city, country)
 @app.route("/location-form", methods=["GET", "POST"])
 def location_form():
@@ -29,8 +30,9 @@ def location_form():
         city = request.form.get("city")
         return """
             <p>Location: {}, {}</p>
-        """.format(city, country)
-
+        """.format(
+            city, country
+        )
 
     # Handle GET request (HTML form element)
     return """
@@ -46,7 +48,6 @@ def location_form():
           <input type="submit" value="Submit" />
         </form>
     """
-    
 
 
 if __name__ == "__main__":
